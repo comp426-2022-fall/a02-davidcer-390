@@ -7,6 +7,10 @@ import fetch from 'node-fetch';
 const args = minimist(process.argv.slice(2))
 console.log(args)
 
+if(args.j){
+	process.exit(0);
+}
+
 if(args.h !== undefined || Object.keys(args).length == 1){
 	console.log(
 `Usage: galosh.js [options] -[n|s] LATITUDE -[e|w] LONGITUDE -z TIME_ZONE
