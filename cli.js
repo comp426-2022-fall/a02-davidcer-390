@@ -22,29 +22,33 @@ if(args.h !== undefined || Object.keys(args).length == 1){
 
 	if(args.n === undefined && args.s === undefined){
 		console.log("Latitude must be in range")
-		process.exit(1);
 	}else if(args.n !== undefined && args.s === undefined){
 		args.latitude = args.n
 	}else if(args.n === undefined && args.s !== undefined){
 		args.latitude = -args.s
 	}else{
 		console.log("Can't have both positive and negative latitudes");
-		process.exit(1);
 	}
 const latitude = args.latitude;
+if(latitude == null){
+	if(args.j){process.exit(0)}
+	else{process.exit(1)}
+}
 
 	if(args.w === undefined && args.e === undefined){
 		console.log("Longitude must be in range")
-		process.exit(1);
 	}else if(args.w !== undefined && args.e === undefined){
 		args.longitude = args.w
 	}else if(args.w === undefined && args.e !== undefined){
 		args.longitude = -args.e
 	}else{
 		console.log("Can't have both positive and negative longitudes");
-		process.exit(1);
 	}
 const longitude = args.longitude;
+if(longitude == null){
+	if(args.j){process.exit(0)}
+	else{process.exit(1)}
+}
 
 	if(args.z === undefined){
 		args.z = moment.tz.guess()
