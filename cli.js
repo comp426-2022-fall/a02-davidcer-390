@@ -5,11 +5,7 @@ import moment from 'moment-timezone';
 import fetch from 'node-fetch';
 
 const args = minimist(process.argv.slice(2))
-console.log(args)
 
-if(args.j){
-	process.exit(0);
-}
 
 if(args.h !== undefined || Object.keys(args).length == 1){
 	console.log(
@@ -25,7 +21,7 @@ if(args.h !== undefined || Object.keys(args).length == 1){
 }
 
 	if(args.n === undefined && args.s === undefined){
-		console.log("No latitude specified")
+		console.log("Latitude must be in range")
 		process.exit(1);
 	}else if(args.n !== undefined && args.s === undefined){
 		args.latitude = args.n
@@ -38,7 +34,7 @@ if(args.h !== undefined || Object.keys(args).length == 1){
 const latitude = args.latitude;
 
 	if(args.w === undefined && args.e === undefined){
-		console.log("No longitude specified")
+		console.log("Longitude must be in range")
 		process.exit(1);
 	}else if(args.w !== undefined && args.e === undefined){
 		args.longitude = args.w
